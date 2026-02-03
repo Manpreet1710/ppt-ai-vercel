@@ -19,7 +19,7 @@ interface PresentationState {
   presentationInput: string;
   imageModel: ImageModelList;
   imageSource: "ai" | "stock";
-  stockImageProvider: "unsplash";
+  stockImageProvider: "pixabay";
   presentationStyle: string;
   modelProvider: "openai" | "ollama" | "lmstudio";
   modelId: string;
@@ -89,7 +89,7 @@ interface PresentationState {
   setWebSearchEnabled: (enabled: boolean) => void;
   setImageModel: (model: ImageModelList) => void;
   setImageSource: (source: "ai" | "stock") => void;
-  setStockImageProvider: (provider: "unsplash") => void;
+  setStockImageProvider: (provider: "pixabay") => void;
   setPresentationStyle: (style: string) => void;
   setModelProvider: (provider: "openai" | "ollama" | "lmstudio") => void;
   setModelId: (id: string) => void;
@@ -142,9 +142,9 @@ export const usePresentationState = create<PresentationState>((set) => ({
   webSearchEnabled: false,
   theme: "mystique",
   customThemeData: null,
-  imageModel: "black-forest-labs/FLUX.1-schnell-Free",
+  imageModel: "gemini-2.5-flash-image",
   imageSource: "stock",
-  stockImageProvider: "unsplash",
+  stockImageProvider: "pixabay",
   presentationStyle: "professional",
   modelProvider: "openai",
   modelId: "llama3.1:8b",

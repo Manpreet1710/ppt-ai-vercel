@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/select";
 import { ImagePlugin } from "@platejs/media/react";
 import { useEditorRef } from "platejs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const MODEL_OPTIONS = [
@@ -53,7 +53,7 @@ export function GenerateImageDialogContent({
   const editor = useEditorRef();
   const [prompt, setPrompt] = useState("");
   const [selectedModel, setSelectedModel] = useState<ImageModelList>(
-    "black-forest-labs/FLUX.1-schnell-Free",
+    "gemini-2.5-flash-image",
   );
 
   const generateImage = async () => {

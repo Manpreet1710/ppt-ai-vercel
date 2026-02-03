@@ -14,18 +14,16 @@ import {
 import { Image, Wand2 } from "lucide-react";
 
 export const IMAGE_MODELS: { value: ImageModelList; label: string }[] = [
-  { value: "black-forest-labs/FLUX.1-schnell-Free", label: "FLUX Fast" },
-  { value: "black-forest-labs/FLUX.1-dev", label: "FLUX Developer" },
-  { value: "black-forest-labs/FLUX1.1-pro", label: "FLUX Premium" },
+  { value: "gemini-2.5-flash-image", label: "Gemini Flash" },
 ];
 
 interface ImageSourceSelectorProps {
   imageSource: "ai" | "stock";
   imageModel: ImageModelList;
-  stockImageProvider: "unsplash";
+  stockImageProvider: "pixabay";
   onImageSourceChange: (source: "ai" | "stock") => void;
   onImageModelChange: (model: ImageModelList) => void;
-  onStockImageProviderChange: (provider: "unsplash") => void;
+  onStockImageProviderChange: (provider: "pixabay") => void;
   className?: string;
   showLabel?: boolean;
 }
@@ -48,13 +46,13 @@ export function ImageSourceSelector({
       <Select
         value={
           imageSource === "ai"
-            ? imageModel || "black-forest-labs/FLUX.1-schnell-Free"
+            ? imageModel || "gemini-2.5-flash-image"
             : `stock-${stockImageProvider}`
         }
         onValueChange={(value) => {
           if (value.startsWith("stock-")) {
             // Handle stock image selection
-            const provider = value.replace("stock-", "") as "unsplash";
+            const provider = value.replace("stock-", "") as "pixabay";
             onImageSourceChange("stock");
             onStockImageProviderChange(provider);
           } else {
@@ -84,7 +82,7 @@ export function ImageSourceSelector({
               <Image size={10} />
               Stock Images
             </SelectLabel>
-            <SelectItem value="stock-unsplash">Unsplash</SelectItem>
+            <SelectItem value="stock-pixabay">Pixabay</SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>
